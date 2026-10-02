@@ -1,0 +1,29 @@
+# Virtual Machines
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.qcow2
+*.ova
+*.iso
+*.img
+
+# Secrets
+.env
+*.key
+*.pem
+*.secret
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
