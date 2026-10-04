@@ -8,9 +8,12 @@ Phase 1 — Foundations
 - Initial topology drafted
 - High-level roadmap defined
 - Project documentation structure created
+- Git repository initialized and pushed to GitHub (main)
+- Host resources reviewed
+- Virtualization platform confirmed: Oracle VirtualBox 7.2.2
 
 ## Not completed yet
 No software has been installed and no lab component has been configured yet.
 
 ## Next step
-Confirm the virtualization platform and available resources, then finalize the first topology/IP plan before installing anything.
+Finalize the IP and VLAN plan in Topology.md before installing anything.
