@@ -35,11 +35,11 @@ Suricata and Wazuh will not necessarily sit literally in-line after the Windows 
 
 | Item | Value |
 |---|---|
-| CPU | AMD A10-8700B, 2 cores / 4 threads |
-| RAM | 14.9 GB |
-| Free storage (D:) | ~101 GB |
-| Firmware virtualization | Enabled |
-| Platform | Oracle VirtualBox 7.2.2 |
+| Host | Dell Latitude E5470 |
+| CPU | Intel Core i7-6820HQ, 4 cores / 8 threads |
+| RAM | 7.9 GB |
+| Free storage (D:) | ~139 GB |
+| Platform | Oracle VirtualBox |
 
 ### Initial VM sizing (planned, to be validated)
 | VM | RAM | vCPU |

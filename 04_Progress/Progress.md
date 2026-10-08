@@ -12,6 +12,7 @@ Phase 1 — Foundations
 - Host resources reviewed
 - Virtualization platform confirmed: Oracle VirtualBox 7.2.2
 - IP and VLAN plan defined (Phase 1 complete)
+- Project migrated to a new laptop (Dell Latitude E5470, 7.9 GB RAM); VirtualBox verified
 
 ## Not completed yet
 No software has been installed and no lab component has been configured yet.
