@@ -11,9 +11,10 @@ Phase 1 — Foundations
 - Git repository initialized and pushed to GitHub (main)
 - Host resources reviewed
 - Virtualization platform confirmed: Oracle VirtualBox 7.2.2
+- IP and VLAN plan defined (Phase 1 complete)
 
 ## Not completed yet
 No software has been installed and no lab component has been configured yet.
 
 ## Next step
-Finalize the IP and VLAN plan in Topology.md before installing anything.
+Phase 2: create the VirtualBox networks and the pfSense VM (nothing installed yet).

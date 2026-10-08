@@ -60,3 +60,24 @@ Suricata and Wazuh will not necessarily sit literally in-line after the Windows 
 - Hyper-V, Windows Hypervisor Platform, and Windows Sandbox are disabled.
 - VirtualBox is expected to run in its Hyper-V-compatible mode, which may be slower.
 - Decision: change nothing on the host yet. Validate real performance when the first VM is created in Phase 2, then decide.
+
+## IP and VLAN plan (Phase 1)
+
+| Network | Subnet | Gateway | Hosts |
+|---|---|---|---|
+| WAN (VirtualBox NAT) | 10.0.2.0/24 | VirtualBox default | pfSense |
+| VLAN 10 - Internal LAN | 10.20.10.0/24 | 10.20.10.1 (pfSense) | Windows Client 10.20.10.10 |
+| VLAN 20 - Servers | 10.20.20.0/24 | 10.20.20.1 (pfSense) | Ubuntu Server 10.20.20.10, Wazuh 10.20.20.20 (later) |
+
+Host LAN is 192.168.100.0/24 and is intentionally not reused.
+
+### Segmentation approach
+VLAN 10 and VLAN 20 are implemented as two separate VirtualBox Internal Networks (lab-vlan10, lab-vlan20), each attached to its own pfSense adapter. This isolates segments reliably but does not use 802.1Q tagging. Real tagging may be added later.
+
+### Initial firewall policy (to be tested)
+| From -> To | Decision |
+|---|---|
+| VLAN 10 -> VLAN 20 | Allow only SSH (22), HTTP/HTTPS (80/443), ICMP |
+| VLAN 20 -> VLAN 10 | Deny new connections |
+| VLAN 10/20 -> Internet | Allow DNS, HTTP/HTTPS |
+| Internet -> inside | Deny |
