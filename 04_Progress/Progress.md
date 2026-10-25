@@ -13,9 +13,14 @@ Phase 1 — Foundations
 - Virtualization platform confirmed: Oracle VirtualBox 7.2.2
 - IP and VLAN plan defined (Phase 1 complete)
 - Project migrated to a new laptop (Dell Latitude E5470, 7.9 GB RAM); VirtualBox verified
+- pfsense-fw VM created in VirtualBox (2 vCPU, 2048 MB RAM, 16 GB disk, 3 adapters)
+- pfSense CE 2.9.0 installed via Netgate Installer v1.2
+- Interfaces assigned: WAN em0 (NAT, DHCP), LAN em1 10.20.10.1/24 (lab-vlan10), OPT1 em2 10.20.20.1/24 (lab-vlan20)
+
 
 ## Not completed yet
 No software has been installed and no lab component has been configured yet.
 
+
 ## Next step
-Phase 2: create the VirtualBox networks and the pfSense VM (nothing installed yet).
+Create a client VM on lab-vlan10 to reach the pfSense web interface (https://10.20.10.1) and verify DHCP and connectivity.

@@ -40,6 +40,7 @@ Suricata and Wazuh will not necessarily sit literally in-line after the Windows 
 | RAM | 7.9 GB |
 | Free storage (D:) | ~139 GB |
 | Platform | Oracle VirtualBox |
+- Firewall: pfSense CE 2.9.0 (chosen at the Netgate Installer prompt). LAN DHCP range not yet verified against 10.20.10.0/24.
 
 ### Initial VM sizing (planned, to be validated)
 | VM | RAM | vCPU |
