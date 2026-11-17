@@ -82,3 +82,18 @@ VLAN 10 and VLAN 20 are implemented as two separate VirtualBox Internal Networks
 | VLAN 20 -> VLAN 10 | Deny new connections |
 | VLAN 10/20 -> Internet | Allow DNS, HTTP/HTTPS |
 | Internet -> inside | Deny |
+
+## Implemented state (as built)
+| VM | OS | RAM | vCPU | Disk | Network |
+|---|---|---|---|---|---|
+| pfsense-fw | pfSense CE 2.9.0 | 1024 MB | 2 | 16 GB | em0 NAT (WAN, DHCP 10.0.2.15), em1 lab-vlan10 (10.20.10.1/24), em2 lab-vlan20 (10.20.20.1/24) |
+| ubuntu-srv | Ubuntu Server 26.04.1 LTS | 1024 MB | 1 | 15 GB | enp0s3 lab-vlan20, static 10.20.20.10/24 |
+| client | Xubuntu 26.04 (planned) | ~2048 MB | 2 | TBD | lab-vlan10, DHCP from pfSense |
+
+### Changes from the original plan
+- Client changed from Windows 10 to Xubuntu: the Windows 10 installation stayed at 2% on a host with 7.9 GB RAM (memory at ~89%).
+- Host is a Dell Latitude E5470 (i7-6820HQ, 7.9 GB RAM). VMs are not run all together; ubuntu-srv is powered off while the client runs.
+
+### Open points
+- LAN DHCP range on pfSense not yet verified (installer default was 192.168.1.100-199; intended 10.20.10.100-199).
+- Hypothesis (not yet confirmed): the ping to 10.20.20.1 fails because OPT1 has no allow rule. To be checked in the pfSense web UI.
