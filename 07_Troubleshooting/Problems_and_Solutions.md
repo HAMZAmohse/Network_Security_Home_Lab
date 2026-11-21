@@ -35,3 +35,18 @@
 ## Windows 10 installation stuck at 2%
 - Evidence: Task Manager showed memory ~89% and disk 0%; VirtualBox VM using ~1.7 GB.
 - Decision: abandon Windows 10 for this host; use a lighter Linux client.
+
+
+### SSH not working on the server
+- Symptom: nc to port 22 returned "Connection refused" while the firewall allowed it.
+- Cause: the SSH service was inactive and not enabled.
+- Fix: sudo systemctl enable --now ssh
+- Note: the server username is labadmain.
+
+### Block rule showed as disabled
+- Symptom: the copied ping rule was disabled and still set to ICMP.
+- Fix: edit it (Action: Block, Protocol: Any) and untick "Disable this rule".
+
+### pfSense address validation error
+- Symptom: "is not a valid destination IP address".
+- Cause: a stray character before the digits. Also, switching Destination to "Network" is what enables the mask field.

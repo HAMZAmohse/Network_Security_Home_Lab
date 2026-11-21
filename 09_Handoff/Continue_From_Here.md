@@ -53,3 +53,16 @@ Phase 2 in progress.
 - VLAN 10 and VLAN 20 are implemented as two separate VirtualBox Internal Networks, not real 802.1Q tagging. This is documented in Topology.md.
 - Home network is 192.168.100.0/24 and must not be reused in the lab.
 - A previous test VM on the old laptop used the default unattended install (user vboxuser). Never reuse that approach for lab VMs; install manually with proper passwords that are not stored in the project.
+
+
+## Current state
+- LAN (staff room) rules finished and tested.
+- Next: OPT1 rules (servers room).
+
+## Next steps
+1. OPT1: Block servers to staff (OPT1 subnets -> 10.20.10.0/24).
+2. OPT1: allow DNS and web to the internet.
+3. Remove the "Temp allow all" rule on OPT1.
+4. Disable the IPv6 allow-all rule on LAN.
+5. Test all directions.
+6. Then Wireshark, Suricata, Wazuh.

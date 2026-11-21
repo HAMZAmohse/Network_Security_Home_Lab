@@ -31,3 +31,17 @@ No software has been installed and no lab component has been configured yet.
 ## Next step
 Create the Xubuntu client VM on lab-vlan10 (power off ubuntu-srv first to save RAM), open https://10.20.10.1,
 verify the LAN DHCP range, add an allow rule on OPT1, and re-test the ping.
+
+## Update: 22 Nov 2026
+
+- Server-to-pfSense ping problem: resolved by itself, root cause unconfirmed.
+- Server and client both reach the internet through pfSense (by IP and by name).
+- Baseline: before the rules, the two rooms could reach each other fully in both directions.
+- LAN rules (IPv4) finished and tested:
+  - Allowed to servers: SSH (22), HTTP (80), HTTPS (443), ping.
+  - Everything else to servers blocked.
+  - DNS to pfSense, web (80/443) to the internet.
+  - "Default allow LAN to any" (IPv4) disabled.
+- Tests passed: SSH login worked, port 3389 blocked, external DNS blocked, ping to the internet blocked.
+- Open item: IPv6 "allow all" rule on LAN is still active (disable later).
+- Next: OPT1 rules (servers room).
