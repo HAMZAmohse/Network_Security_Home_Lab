@@ -55,14 +55,19 @@ Phase 2 in progress.
 - A previous test VM on the old laptop used the default unattended install (user vboxuser). Never reuse that approach for lab VMs; install manually with proper passwords that are not stored in the project.
 
 
-## Current state
-- LAN (staff room) rules finished and tested.
-- Next: OPT1 rules (servers room).
+## Current state (22 Nov 2026)
+- pfSense, client-xubuntu and ubuntu-srv are running.
+- LAN and OPT1 firewall rules are finished and tested (IPv4).
+- Both "allow all" rules (LAN default, OPT1 temp) are disabled, not deleted.
+- ubuntu-srv uses 10.20.20.1 as DNS; SSH is enabled.
 
 ## Next steps
-1. OPT1: Block servers to staff (OPT1 subnets -> 10.20.10.0/24).
-2. OPT1: allow DNS and web to the internet.
-3. Remove the "Temp allow all" rule on OPT1.
-4. Disable the IPv6 allow-all rule on LAN.
-5. Test all directions.
-6. Then Wireshark, Suricata, Wazuh.
+1. Disable the IPv6 allow-all rule on LAN (low priority).
+2. Save LAN and OPT1 rule screenshots to 08_Screenshots.
+3. Wireshark: observe SSH, DNS and blocked traffic.
+4. Suricata, then Wazuh (run Wazuh alone because of RAM).
+
+## Reminders
+- Power Off VMs, never Save State.
+- No passwords or keys in project files or on GitHub.
+- Run only one or two VMs at a time (7.9 GB RAM).

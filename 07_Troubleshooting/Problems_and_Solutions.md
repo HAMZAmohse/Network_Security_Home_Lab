@@ -50,3 +50,31 @@
 ### pfSense address validation error
 - Symptom: "is not a valid destination IP address".
 - Cause: a stray character before the digits. Also, switching Destination to "Network" is what enables the mask field.
+### SSH connection refused on the server
+- Symptom: nc to 10.20.20.10:22 returned "Connection refused" while the firewall allowed it.
+- Meaning: the packet reached the server; the firewall was not the cause.
+- Cause: the ssh service was inactive and not enabled.
+- Fix: sudo systemctl enable --now ssh
+- Note: server username is labadmain.
+
+### Block rule was created disabled
+- Symptom: the copied ping rule showed a red X and was still ICMP.
+- Fix: edit it (Action: Block, Protocol: Any) and untick "Disable this rule".
+
+### pfSense: "is not a valid destination IP address"
+- Cause: a stray character before the digits.
+- Note: the mask field is enabled only when Destination type is "Network".
+
+### Typing mistakes that looked like network problems
+- "ssh labadmain @10.20.20.10" (space before @) gave "Could not resolve hostname".
+- "nc -zv -w 10.20.10.100 22" (missing timeout value) gave "timeout invalid".
+
+### apt update failed after disabling the temporary allow-all on OPT1
+- Symptom: "Temporary failure resolving 'security.ubuntu.com'".
+- Cause: the server used 8.8.8.8 for DNS; OPT1 only allows DNS to the pfSense address.
+- Fix: in /etc/netplan/00-installer-config.yaml set nameservers to 10.20.20.1, then sudo netplan apply.
+- Check: resolvectl status shows Current DNS Server 10.20.20.1.
+
+### ubuntu-srv console stops showing typed text
+- Symptom: after some time, typed commands are not displayed (they still run).
+- Workaround: press Ctrl+L, or work over SSH from the client VM.
